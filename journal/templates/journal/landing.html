@@ -1,0 +1,106 @@
+{% extends 'journal/base.html' %}
+
+{% block title %}Welcome - Personal Journal{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Hero Section -->
+    <div class="col-12 text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">
+            <i class="bi bi-journal-text"></i> Personal Daily Journal
+        </h1>
+        <p class="lead text-muted">Your private space for daily reflections, thoughts, and memories</p>
+        <div class="mt-4">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg me-2">
+                <i class="bi bi-person-plus"></i> Get Started
+            </a>
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+            </a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="col-12 mb-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-journal-check text-primary" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Daily Entries</h5>
+                        <p class="card-text">Write about your day, capture your thoughts, and track your experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-list-check text-success" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Task Management</h5>
+                        <p class="card-text">Keep track of your daily tasks and mark them as complete.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-emoji-smile text-warning" style="font-size: 3rem;"></i>
+                        <h5 class="card-title mt-3">Mood Tracking</h5>
+                        <p class="card-text">Record your emotions and see patterns in your mental wellbeing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Journal Section -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center mb-0">Why Keep a Journal?</h2>
+            </div>
+            <div class="card-body p-5">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Reduce Stress:</strong> Writing helps process emotions
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Self-Reflection:</strong> Understand yourself better
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Track Progress:</strong> See how far you've come
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Preserve Memories:</strong> Keep your experiences safe
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Goal Setting:</strong> Track your tasks and achievements
+                            </li>
+                            <li class="mb-3">
+                                <i class="bi bi-check-circle-fill text-success"></i>
+                                <strong> Mental Clarity:</strong> Organize your thoughts
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="{% url 'register' %}" class="btn btn-primary btn-lg">
+                        Start Your Journal Today
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

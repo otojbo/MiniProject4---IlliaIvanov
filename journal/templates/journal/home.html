@@ -1,0 +1,82 @@
+{% extends 'journal/base.html' %}
+
+{% block title %}Home - Personal Journal{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0"><i class="bi bi-calendar-check"></i> Welcome, {{ user.username }}!</h4>
+            </div>
+            <div class="card-body">
+                <p class="lead">Your personal space for daily reflections, tasks, and memories.</p>
+                <div class="d-grid gap-2 d-md-flex">
+                    <a href="{% url 'journal:entry_create' %}" class="btn btn-primary">
+                        <i class="bi bi-plus-circle"></i> Create Today's Entry
+                    </a>
+                    <a href="{% url 'journal:entry_list' %}" class="btn btn-outline-primary">
+                        <i class="bi bi-journal-text"></i> View All Entries
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Entries -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-clock-history"></i> Recent Entries</h5>
+            </div>
+            <div class="card-body">
+                {% if recent_entries %}
+                    <div class="list-group list-group-flush">
+                        {% for entry in recent_entries %}
+                            <a href="{% url 'journal:entry_detail' entry.pk %}" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h6 class="mb-1">{{ entry.title }}</h6>
+                                    <small class="text-muted">{{ entry.date|date:"M d, Y" }}</small>
+                                </div>
+                                <p class="mb-1 text-truncate">{{ entry.content|truncatewords:20 }}</p>
+                                <small class="mood-badge">{{ entry.get_mood_display }}</small>
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-journal-x" style="font-size: 3rem;"></i>
+                        <p class="mt-2">No entries yet. Start writing your first entry!</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="bi bi-lightbulb"></i> Quick Tips</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle text-success"></i> Write regularly for best results</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-success"></i> Track your daily tasks</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-success"></i> Record your mood</li>
+                    <li class="mb-2"><i class="bi bi-check-circle text-success"></i> Review past entries</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="bi bi-bar-chart"></i> Your Stats</h5>
+            </div>
+            <div class="card-body text-center">
+                <a href="{% url 'journal:profile' %}" class="btn btn-outline-primary btn-sm">
+                    View Full Statistics
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'journal/base.html' %}
+
+{% block title %}All Entries - Personal Journal{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="mb-0"><i class="bi bi-journal-text"></i> All Journal Entries</h4>
+                <a href="{% url 'journal:entry_create' %}" class="btn btn-light btn-sm">
+                    <i class="bi bi-plus-circle"></i> New Entry
+                </a>
+            </div>
+            <div class="card-body">
+                {% if entries %}
+                    <div class="row">
+                        {% for entry in entries %}
+                            <div class="col-md-6 col-lg-4 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">{{ entry.date|date:"M d, Y" }}</small>
+                                        <span class="mood-badge">{{ entry.get_mood_display }}</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ entry.title }}</h5>
+                                        <p class="card-text text-truncate">{{ entry.content|truncatewords:15 }}</p>
+                                        <small class="text-muted">
+                                            <i class="bi bi-list-check"></i> {{ entry.tasks.count }} tasks
+                                        </small>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="{% url 'journal:entry_detail' entry.pk %}" class="btn btn-sm btn-primary">
+                                            View Entry
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-5">
+                        <i class="bi bi-journal-x" style="font-size: 4rem;"></i>
+                        <h4 class="mt-3">No Entries Yet</h4>
+                        <p>Start your journaling journey by creating your first entry!</p>
+                        <a href="{% url 'journal:entry_create' %}" class="btn btn-primary mt-2">
+                            <i class="bi bi-plus-circle"></i> Create First Entry
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

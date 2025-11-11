@@ -1,0 +1,60 @@
+{% extends 'journal/base.html' %}
+
+{% block title %}About - Personal Journal{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="mb-0"><i class="bi bi-info-circle"></i> About Personal Daily Journal</h3>
+            </div>
+            <div class="card-body">
+                <h4>What is Personal Daily Journal?</h4>
+                <p class="lead">
+                    Personal Daily Journal is a web application designed to help you track your daily experiences,
+                    thoughts, emotions, and tasks all in one place.
+                </p>
+
+                <hr>
+
+                <h5><i class="bi bi-star"></i> Features</h5>
+                <ul>
+                    <li><strong>Daily Entries:</strong> Write about your day, experiences, and thoughts</li>
+                    <li><strong>Task Management:</strong> Keep track of daily tasks and mark them as complete</li>
+                    <li><strong>Mood Tracking:</strong> Record how you're feeling each day</li>
+                    <li><strong>Statistics:</strong> View your journaling habits and mood patterns</li>
+                    <li><strong>Privacy:</strong> Your entries are private and only visible to you</li>
+                </ul>
+
+                <hr>
+
+                <h5><i class="bi bi-question-circle"></i> How to Use</h5>
+                <ol>
+                    <li>Create an account or log in</li>
+                    <li>Click "Create New Entry" to start writing</li>
+                    <li>Add tasks to your daily entries</li>
+                    <li>Track your mood each day</li>
+                    <li>Review past entries and see your progress</li>
+                </ol>
+
+                <div class="alert alert-info mt-4">
+                    <h6><i class="bi bi-lightbulb"></i> Journaling Tips</h6>
+                    <ul class="mb-0">
+                        <li>Write regularly, even if just a few sentences</li>
+                        <li>Be honest with yourself</li>
+                        <li>Include both positive and negative experiences</li>
+                        <li>Use journaling as a tool for self-reflection</li>
+                        <li>Don't worry about perfect grammar or spelling</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <a href="{% url 'journal:home' %}" class="btn btn-primary">
+                    <i class="bi bi-house"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
