@@ -18,7 +18,6 @@ To install, clone the repository and install the required packages:
 
 ```bash
 git clone https://github.com/otojbo/MiniProject4---IlliaIvanov.git
-cd personal-diary
 pip install -r requirements.txt
 ```
 
@@ -67,7 +66,7 @@ http://127.0.0.1:8000/admin
 ## Project Structure
 
 ```
-personal_diary/
+MiniProject4 - IlliaIvanov/
 │
 ├── journal/                          # Main application
 │   ├── migrations/                   # Database migrations
